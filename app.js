@@ -1,19 +1,11 @@
 const locationData = document.querySelector(".location-data");
 const latitude = document.querySelector(".latitude");
 const longitude = document.querySelector(".longitude");
+const searchInput = document.querySelector(".search-input");
+const searchButton = document.querySelector(".search-button")
 
-
-// function getUserPosition() {
-//   if ("geolocation" in navigator) {
-//     console.log("navigation available");
-//     navigator.geolocation.getCurrentPosition((position) => {
-//       latitude.textContent = position.coords.latitude;
-//       longitude.textContent = position.coords.longitude;
-//     });
-//   } else {
-//     console.log("navigation NOT available");
-//   }
-// }
+searchInput.addEventListener('input', getValue);
+//searchButton.addEventListener('click', getValue)
 
 function getUserPosition() {
     if (navigator.geolocation) {
@@ -48,6 +40,21 @@ function displayError(error) {
         break;
     }}
 
+async function fetchIPJSON() {
+    const response = await fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_HZ3wjdvqNqcraMoKIVxuLuf6uFzfN&domain=google.com');
+    console.log(response);
+    const ipData = await response.json();
+    console.log(ipData);
+        return ipData;
+}
 
+fetchIPJSON().then(ipData => {
+    ipData; // fetched movies
+});
 
 getUserPosition()
+
+
+function getValue(e) {
+    console.log(e.target.value)
+}

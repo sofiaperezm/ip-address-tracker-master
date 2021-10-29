@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+.search-label{
+    position: absolute;
+    top: 355px;
+    left: 575px;
+}
+
+.search-input {
+    height: 30px;
+    width: 900px;
+}
