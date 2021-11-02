@@ -15,6 +15,8 @@ async function init() {
     const { ip } = await getCurrentIPData();
     const ipData = await getIPData(IP_ADDRESS_PARAM, ip);
     console.log(ipData);
+
+    // llamar la funcion que actualiza las info cards
 }
 
 function getUserPosition() {
@@ -117,4 +119,4 @@ function updateMarker(latitude, longitude) {
 init();
 
 // crear una funcion que actualice el marcador del mapa (recibe lat long)
-// crear una funcion que actualice los info cards
+// crear una funcion que actualice los info cards (named params)
