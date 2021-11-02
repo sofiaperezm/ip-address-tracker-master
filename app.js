@@ -9,6 +9,14 @@ const DOMAIN_PARAM = "domain";
 
 searchButton.addEventListener("click", handleInputValue);
 
+
+async function init() {
+    getUserPosition();
+    const { ip } = await getCurrentIPData();
+    const ipData = await getIPData(IP_ADDRESS_PARAM, ip);
+    console.log(ipData);
+}
+
 function getUserPosition() {
   if (navigator.geolocation) {
     return navigator.geolocation.getCurrentPosition(handleUserPosition, displayError)
@@ -51,6 +59,14 @@ async function getIPData(inputParam, inputValue) {
   return ipData;
 }
 
+async function getCurrentIPData() {
+    const response = await fetch(
+      "https://api.ipify.org?format=json"
+    );
+    const currentIPData = await response.json();
+    return currentIPData;
+}
+
 async function handleInputValue(e) {
   const regexIPAddress = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
   const regexDomain = /[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+/;
@@ -74,14 +90,14 @@ async function handleInputValue(e) {
   const longitude = response.location.lng;
   const latitude = response.location.lat;
 
-  await mapElement.setView([latitude, longitude], 13);
+  await mapElement.setView([latitude, longitude], 18);
   
   // llamar la funcion que actualiza el marcador del mapa
+  updateMarker(latitude, longitude);
 }
 
 function initMap(latitude, longitude) {
 
-  // mostrar long - lat por defecto de getUserPosition()
   mapElement.setView([latitude, longitude], 18);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -90,7 +106,15 @@ function initMap(latitude, longitude) {
   }).addTo(mapElement);
 
   // llama la funcion que actualice el marcador del mapa
+
+  updateMarker(latitude, longitude)
 }
 
-getUserPosition()
+function updateMarker(latitude, longitude) {
+    L.marker([latitude, longitude]).addTo(mapElement)
+}
+
+init();
+
 // crear una funcion que actualice el marcador del mapa (recibe lat long)
+// crear una funcion que actualice los info cards
