@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
    crossorigin=""/>
-   <!-- Make sure you put this AFTER Leaflet's CSS -->
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
   crossorigin=""></script>
@@ -23,6 +22,25 @@
     <label for="ip-search" class="search-label"></label>
     <input type="search" id="ip-search" class="search-input" placeholder="Search for any IP address or domain" aria-label="Search for any IP address or domain">
     <button type="button" class="search-button">Search</button>
+  </div>
+
+  <div class="info-cards">
+    <div>
+      <h2>IP ADDRESS</h2>
+      <p id="ip-address"></p>
+    </div>
+    <div>
+      <h2>LOCATION</h2>
+      <p id="location"></p>
+    </div>
+    <div>
+      <h2>TIMEZONE</h2>
+      <p id="timezone"></p>
+    </div>
+    <div>
+      <h2>ISP</h2>
+      <p id="isp"></p>
+    </div>
   </div>
 
   <div id="map"></div>

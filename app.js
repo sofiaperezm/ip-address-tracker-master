@@ -1,8 +1,12 @@
 const locationData = document.querySelector(".location-data");
 const searchInput = document.querySelector(".search-input");
 const searchButton = document.querySelector(".search-button");
+const ipAddressOutput = document.querySelector("#ip-address");
+const locationOutput = document.querySelector("#location");
+const timezoneOutput = document.querySelector("#timezone");
+const ispOutput = document.querySelector("#isp");
 const mapElement = L.map("map");
-const markerMap = null;
+let markerLayer = null;
 
 const IP_ADDRESS_PARAM = "ipAddress";
 const DOMAIN_PARAM = "domain";
@@ -14,9 +18,14 @@ async function init() {
     getUserPosition();
     const { ip } = await getCurrentIPData();
     const ipData = await getIPData(IP_ADDRESS_PARAM, ip);
-    console.log(ipData);
-
-    // llamar la funcion que actualiza las info cards
+    handleInfoCards({
+      ip: ipData.ip, 
+      city: ipData.location.city, 
+      country: ipData.location.country, 
+      postalCode: ipData.location.postalCode, 
+      timezone: ipData.location.timezone, 
+      isp: ipData.isp 
+    });
 }
 
 function getUserPosition() {
@@ -89,13 +98,23 @@ async function handleInputValue(e) {
   }
 
   const response = await getIPData(inputParam, inputValue);
+
+  console.log(response)
+  handleInfoCards({
+    ip: response.ip, 
+    city: response.location.city, 
+    country: response.location.country, 
+    postalCode: response.location.postalCode, 
+    timezone: response.location.timezone, 
+    isp: response.isp 
+  });
+
   const longitude = response.location.lng;
   const latitude = response.location.lat;
-
   await mapElement.setView([latitude, longitude], 18);
-  
-  // llamar la funcion que actualiza el marcador del mapa
   updateMarker(latitude, longitude);
+
+
 }
 
 function initMap(latitude, longitude) {
@@ -113,10 +132,18 @@ function initMap(latitude, longitude) {
 }
 
 function updateMarker(latitude, longitude) {
-    L.marker([latitude, longitude]).addTo(mapElement)
+  if (markerLayer) {
+    markerLayer.remove()
+  }
+  markerLayer = L.marker([latitude, longitude]);
+  markerLayer.addTo(mapElement);
+}
+
+function handleInfoCards({ ip, city, country, postalCode, timezone, isp }) {
+  ipAddressOutput.textContent = !ip ? "-" : `${ip}`;
+  locationOutput.textContent = `${city}, ${country} ${postalCode}`;
+  timezoneOutput.textContent = !timezone ? "-" : `UTC ${timezone}`;
+  ispOutput.textContent = !isp ? "-" : `${isp}`;
 }
 
 init();
-
-// crear una funcion que actualice el marcador del mapa (recibe lat long)
-// crear una funcion que actualice los info cards (named params)
