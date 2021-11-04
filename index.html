@@ -19,13 +19,11 @@
   <title>Frontend Mentor | IP Address Tracker</title>
 </head>
 <body>
-  <header class="header">
-    <h1 class="title">IP Address Tracker</h1>
-  </header>
   <div class="container">
+    <h1 class="title">IP Address Tracker</h1>
     <section class="search-section">
       <label for="ip-search" class="search-label"></label>
-      <input type="search" id="ip-search" class="search-input" placeholder="  Search for any IP address or domain" aria-label="Search for any IP address or domain">
+      <input type="search" id="ip-search" class="search-input" placeholder="   Search for any IP address or domain" aria-label="Search for any IP address or domain">
       <button type="button" class="search-button"></button>
     </section>
 
@@ -34,14 +32,17 @@
         <p class="card-title">IP ADDRESS</p>
         <p class="card-data" id="ip-address"></p>
       </div>
+      <div class="vertical-line"></div>
       <div class="info-card">
         <p class="card-title">LOCATION</p>
         <p class="card-data" id="location"></p>
       </div>
+      <div class="vertical-line"></div>
       <div class="info-card">
         <p class="card-title">TIMEZONE</p>
         <p class="card-data" id="timezone"></p>
       </div>
+      <div class="vertical-line"></div>
       <div class="info-card">
         <p class="card-title">ISP</p>
         <p class="card-data" id="isp"></p>
@@ -49,13 +50,12 @@
     </section>
   </div>  
 
-
   <div id="map"></div>
 
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </footer>
+  <footer>
+    <div class="attribution">Challenge by<a href="https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt">Frontend Mentor</a></div>
+    <div class="attribution">Coded by<a href="https://www.linkedin.com/in/sofiaperezmantilla/">Sofia Perez Mantilla</a></div>
+</footer>
   <script type="module" src="app.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ const ipAddressOutput = document.querySelector("#ip-address");
 const locationOutput = document.querySelector("#location");
 const timezoneOutput = document.querySelector("#timezone");
 const ispOutput = document.querySelector("#isp");
-const mapElement = L.map("map");
+const mapElement = L.map("map", { zoomControl: false });
 let markerLayer = null;
 
 const IP_ADDRESS_PARAM = "ipAddress";
@@ -99,7 +99,6 @@ async function handleInputValue(e) {
 
   const response = await getIPData(inputParam, inputValue);
 
-  console.log(response)
   handleInfoCards({
     ip: response.ip, 
     city: response.location.city, 
@@ -118,13 +117,12 @@ async function handleInputValue(e) {
 function initMap(latitude, longitude) {
 
   mapElement.setView([latitude, longitude], 18);
+  mapElement.scrollWheelZoom.disable();
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(mapElement);
-
-  // llama la funcion que actualice el marcador del mapa
 
   updateMarker(latitude, longitude)
 }

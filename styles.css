@@ -15,73 +15,68 @@ body {
     padding: 0;
 }
 
-.header {
-    background-image: url(images/pattern-bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    width: 100%;
-    min-height: 380px;
+.container {
+  background-image: url(images/pattern-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.8rem;
 }
 
 .title {
-    text-align: center;
-    color: #fdfeff;
-    margin-top: 0px;
-    padding: 40px;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: nowrap;
+  text-align: center;
+  color: #fdfeff;
+  margin-top: 20px;
 }
 
 .search-section {
-    margin-top: -250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .search-input {
-    height: 50px;
-    width: 400px;
-    border-radius: 20px 0 0 20px;
-    font-size: 18px;
-    border-style: none;
+  height: 50px;
+  width: 100%;
+  border-radius: 16px 0 0 16px;
+  font-size: 18px;
+  border-style: none;
+  color: var(--dark-gray)
 }
 
 .search-button {
-    background-image: url(images/icon-arrow.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #000000;
-    border-style: none;
-    padding: 26px;
-    height: 50px;
-    border-radius: 0 20px 20px 0;
-    margin-left: -2;
-    cursor: pointer;
+  background-image: url(images/icon-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #000000;
+  border-style: none;
+  padding: 26px;
+  height: 50px;
+  border-radius: 0 16px 16px 0;
+  cursor: pointer;
 }
 
 .search-button:hover {
-    background-color: var(--very-dark-gray);
+  background-color: var(--very-dark-gray);
 }
 
 .info-cards {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
     background-color: #ffffff;
-    margin: 30px 50px;
+    margin-top: 30px;
     border-radius: 20px;
     box-shadow: var(--box-shadow);
-    width: 70%;
+    width: 100%;
+    padding: 1rem;
     z-index: 2;
-    padding: 20px;
+}
+
+.info-card {
+    text-align: center;
 }
 
 .card-title {
@@ -99,36 +94,87 @@ body {
 }
 
 #map {
-    margin-top: -318px;
     height: 800px;
-    z-index: -1;
+    z-index: 1;
 }
 
-@media only screen and (min-width: 720px) {
-    .info-cards {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        text-align: left;
-        min-width: 500px;
-        max-width: 1000px;
-        margin-bottom: 200px;
+footer {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+
+.attribution {
+    color: var(--dark-gray);
+    text-align: center;
+    margin: 12px;
+    font-size: 16px;
+}
+
+.attribution > a {
+    color: var(--very-dark-gray);
+    margin-left: 10px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .title {
+        font-weight: 500;
+        font-size: 34px;
     }
 
-    .search-input {
-        height: 60px;
+    .search-section {
+        margin-top: 25px;
+        width: 40%;
+    }
 
-        border-radius: 16px 0 0 16px;
+    .search-input, .search-button {
+        height: 66px;
         font-size: 20px;
     }
 
-    .search-button {
-        height: 60px;
-        border-radius: 0 16px 16px 0;
+    .info-cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 95%;
+        margin-top: 50px;
+    }
+
+    .info-card {
+        text-align: left;
+    }
+
+    .vertical-line {
+        border-right: 1px solid #dddddd;
+        height: 80%;
     }
     
     .card-data {
         font-size: 30px;
     }
+
+    .container {
+        height: 32vh;
+    }
+
+    footer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 30px;
+    }
+
+    .attribution {
+        font-size: 20px;        
+    }
+
+    .attribution > a {
+        margin-left: 10px;
+    }
 }
 
+@media only screen and (min-width: 1201px) {
+    .info-cards {
+        width: 80%;
+    }
+}
