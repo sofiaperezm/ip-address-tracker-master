@@ -113,8 +113,6 @@ async function handleInputValue(e) {
   const latitude = response.location.lat;
   await mapElement.setView([latitude, longitude], 18);
   updateMarker(latitude, longitude);
-
-
 }
 
 function initMap(latitude, longitude) {
@@ -132,10 +130,14 @@ function initMap(latitude, longitude) {
 }
 
 function updateMarker(latitude, longitude) {
+  const customeIcon = L.icon({
+    iconUrl: "images/icon-location.svg",
+  });
+
   if (markerLayer) {
     markerLayer.remove()
   }
-  markerLayer = L.marker([latitude, longitude]);
+  markerLayer = L.marker([latitude, longitude], {icon: customeIcon});
   markerLayer.addTo(mapElement);
 }
 
