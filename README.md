@@ -38,8 +38,8 @@ Mobile view
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://sofiaperezm.github.io/ip-address-tracker-master/)
+- Solution URL: [Solution on Frontend Mentor](https://your-solution-url.com)
+- Live Site URL: [Live Site on GitHub Pages](https://sofiaperezm.github.io/ip-address-tracker-master/)
 
 ## My process
 
