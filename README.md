@@ -29,9 +29,11 @@ Users should be able to:
 ### Screenshot
 
 Desktop view
+
 ![Desktop view](images/desktop-screenshot.jpeg)
 
 Mobile view
+
 ![Mobile view](images/mobile-screenshot.jpeg)
 
 ### Links
@@ -83,7 +85,7 @@ I would like to focus on implement React in my next challenge.
 
 ### Useful resources
 
-- [<input type="search">](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/search) - This MDN Web Documentation for the input of type "search" helped me to take advantage of all the attributes that HTML has to offer. Also, it helped me to implement the corresponding aria-label.
+- [input type search](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/search) - This MDN Web Documentation for the input of type "search" helped me to take advantage of all the attributes that HTML has to offer. Also, it helped me to implement the corresponding aria-label.
 - [HTMLElement: input event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event) - This MDN Web Documentation helped me to understand better the event that `<input>` fires.
 - [How to Use Fetch with async/await](https://dmitripavlutin.com/javascript-fetch-async-await/) - This amazing articule helped me to understand the API calls and the async-await syntax.
 - [2.2 Geolocation Web API - Working with Data and APIs in JavaScript](https://www.youtube.com/watch?v=3ls013DBcww&ab_channel=TheCodingTrain) - This great video explains really well how to implement Geolocation Web API with navigator.geolocation. 
