@@ -38,7 +38,7 @@ Mobile view
 
 ### Links
 
-- Solution URL: [Solution on Frontend Mentor](https://your-solution-url.com)
+- Solution URL: [Solution on Frontend Mentor](https://www.frontendmentor.io/solutions/mobilefirst-ip-tracker-using-vanilla-javascript-PWFFlVfub)
 - Live Site URL: [Live Site on GitHub Pages](https://sofiaperezm.github.io/ip-address-tracker-master/)
 
 ## My process
